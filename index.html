@@ -11,15 +11,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
 :root{
-  --bg-primary:#0a0f1e;
-  --bg-secondary:#0d1630;
-  --glass:rgba(255,255,255,0.05);
-  --glass-border:rgba(255,255,255,0.1);
-  --accent:#4f8ef7;
-  --accent-glow:rgba(79,142,247,0.3);
-  --text-primary:#e8eaf0;
-  --text-secondary:#8892a4;
-  --success:#2dd4a7;
+  --bg-primary:#0d0e15;
+  --bg-secondary:#1a1c29;
+  --glass:rgba(255,255,255,0.03);
+  --glass-border:rgba(255,255,255,0.08);
+  --accent:#ff2a5f;
+  --accent-glow:rgba(255,42,95,0.3);
+  --text-primary:#ffffff;
+  --text-secondary:#a0aab2;
+  --success:#00e5ff;
   --font-head:'Syne',sans-serif;
   --font-body:'Inter',sans-serif;
 }
@@ -54,11 +54,11 @@ body.cur-click #cur-ring{width:20px;height:20px;border-color:var(--accent);opaci
 #particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
 
 /* ===== NAVBAR ===== */
-#navbar-wrap{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:center;padding:16px 24px;transition:padding .35s;pointer-events:none;}
-#navbar-wrap.scrolled{padding:8px 24px;}
-nav{pointer-events:all;display:flex;align-items:center;gap:0;width:100%;max-width:1000px;background:rgba(13,22,48,0.75);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--glass-border);border-radius:50px;padding:10px 10px 10px 24px;box-shadow:0 8px 32px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.06);transition:all .35s;}
-#navbar-wrap.scrolled nav{padding:8px 8px 8px 20px;box-shadow:0 4px 20px rgba(0,0,0,0.4);}
-.nav-logo{font-family:var(--font-head);font-size:1.15rem;font-weight:800;color:var(--text-primary);text-decoration:none;letter-spacing:.5px;margin-right:auto;display:flex;align-items:center;gap:6px;}
+#navbar-wrap{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:center;padding:0;transition:all .35s;pointer-events:none;border-bottom:1px solid transparent;}
+#navbar-wrap.scrolled{background:rgba(13,14,21,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);box-shadow:0 4px 30px rgba(0,0,0,0.4);}
+nav{pointer-events:all;display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1200px;background:transparent;border:none;border-radius:0;padding:24px;box-shadow:none;transition:padding .35s;}
+#navbar-wrap.scrolled nav{padding:16px 24px;}
+.nav-logo{font-family:var(--font-head);font-size:1.25rem;font-weight:800;color:var(--text-primary);text-decoration:none;letter-spacing:.5px;margin-right:auto;display:flex;align-items:center;gap:6px;}
 .nav-logo .logo-bracket{color:var(--accent);font-size:1.3rem;line-height:1;}
 .nav-logo .logo-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--success);margin-left:2px;}
 .nav-links{display:flex;gap:2px;list-style:none;margin:0 12px;}
@@ -66,17 +66,17 @@ nav{pointer-events:all;display:flex;align-items:center;gap:0;width:100%;max-widt
 .nav-links a::after{content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:0;height:2px;border-radius:1px;background:linear-gradient(90deg,var(--accent),var(--success));transition:width .3s;}
 .nav-links a:hover{color:#fff;}
 .nav-links a:hover::after{width:60%;}
-.nav-hire{background:linear-gradient(135deg,var(--accent),#3a6fd8);color:#fff;text-decoration:none;font-size:.82rem;font-weight:700;padding:9px 20px;border-radius:24px;white-space:nowrap;transition:opacity .2s,transform .2s;letter-spacing:.3px;}
-.nav-hire:hover{opacity:.88;transform:scale(1.04);}
+.nav-hire{background:linear-gradient(135deg,var(--accent),#ff7e67);color:#fff;text-decoration:none;font-size:.82rem;font-weight:700;padding:10px 24px;border-radius:24px;white-space:nowrap;transition:opacity .2s,transform .2s;letter-spacing:.3px;}
+.nav-hire:hover{opacity:.88;transform:scale(1.04);box-shadow:0 4px 15px var(--accent-glow);}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px 8px;border-radius:8px;margin-left:8px;}
 .hamburger span{display:block;width:20px;height:2px;background:var(--text-primary);border-radius:2px;transition:all .3s;}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-menu{display:none;position:fixed;top:80px;left:16px;right:16px;background:rgba(13,22,48,0.97);backdrop-filter:blur(24px);border:1px solid var(--glass-border);border-radius:20px;padding:8px;z-index:999;box-shadow:0 16px 48px rgba(0,0,0,0.5);}
+.mobile-menu{display:none;position:fixed;top:80px;left:16px;right:16px;background:rgba(13,14,21,0.97);backdrop-filter:blur(24px);border:1px solid var(--glass-border);border-radius:20px;padding:8px;z-index:999;box-shadow:0 16px 48px rgba(0,0,0,0.5);}
 .mobile-menu.open{display:block;}
 .mobile-menu a{display:flex;align-items:center;padding:13px 18px;color:var(--text-secondary);text-decoration:none;font-size:.95rem;border-radius:12px;transition:background .2s,color .2s;}
-.mobile-menu a:hover{color:#fff;background:rgba(79,142,247,0.1);}
+.mobile-menu a:hover{color:#fff;background:var(--accent-glow);}
 
 /* ===== SECTIONS ===== */
 section{position:relative;z-index:1;}
@@ -105,7 +105,7 @@ section{position:relative;z-index:1;}
 .hero-tagline{color:var(--text-secondary);font-size:1rem;max-width:520px;margin:0 auto 32px;}
 .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
 .btn{padding:12px 28px;border-radius:50px;font-size:.9rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .3s;border:none;display:inline-flex;align-items:center;gap:8px;}
-.btn-primary{background:linear-gradient(135deg,var(--accent),#3a6fd8);color:#fff;box-shadow:0 4px 20px var(--accent-glow);}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#ff7e67);color:#fff;box-shadow:0 4px 20px var(--accent-glow);}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow);}
 .btn-outline{background:transparent;color:var(--text-primary);border:1px solid var(--glass-border);}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
@@ -196,7 +196,7 @@ section{position:relative;z-index:1;}
 
 /* ===== FLOATING CONTACT BTN ===== */
 #float-btn{position:fixed;right:24px;bottom:32px;z-index:900;display:flex;flex-direction:column;align-items:center;gap:12px;}
-.float-main{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#3a6fd8);border:none;color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 20px var(--accent-glow);transition:transform .3s,box-shadow .3s;display:flex;align-items:center;justify-content:center;}
+.float-main{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#ff7e67);border:none;color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 20px var(--accent-glow);transition:transform .3s,box-shadow .3s;display:flex;align-items:center;justify-content:center;}
 .float-main:hover{transform:scale(1.1);}
 .float-actions{display:flex;flex-direction:column;gap:10px;align-items:center;overflow:hidden;max-height:0;opacity:0;transition:max-height .4s ease,opacity .4s ease;}
 .float-actions.open{max-height:200px;opacity:1;}
@@ -293,7 +293,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--glass-border);back
 <section id="hero">
   <div class="hero-content reveal">
     <div class="avatar" id="heroAvatar">
-      <img src="profile.png" alt="Shihab Uddin" onerror="this.style.display='none'; this.parentElement.textContent='SU'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.color='#fff'; this.parentElement.style.background='linear-gradient(135deg,var(--accent),#1a3a6e)';">
+      <img src="profile.png" alt="Shihab Uddin" onerror="this.style.display='none'; this.parentElement.textContent='SU'; this.parentElement.style.fontSize='3rem'; this.parentElement.style.color='#fff'; this.parentElement.style.background='linear-gradient(135deg,var(--accent),#ff7e67)';">
     </div>
     <h1 class="hero-name">Shihab Uddin</h1>
     <div class="hero-typing-wrap"><span id="typingText"></span><span class="cursor"></span></div>
